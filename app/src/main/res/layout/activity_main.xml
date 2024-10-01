@@ -1,0 +1,194 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- Основной контент с разделами -->
+    <LinearLayout
+        android:id="@+id/mainContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/dateSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/dateTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="16 мая"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Области для завтрака, обеда, ужина -->
+        <LinearLayout
+            android:id="@+id/breakfastSection"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/breakfastTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Завтрак"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/breakfastItems"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lunchSection"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/lunchTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Обед"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/lunchItems"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/dinnerSection"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/dinnerTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ужин"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/dinnerItems"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Плавающая кнопка "Плюс" и меню -->
+    <FrameLayout
+        android:id="@+id/fabMenuContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Кнопка "Плюс" -->
+        <Button
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="16dp"
+            android:backgroundTint="@color/black" />
+
+        <!-- Меню кнопок Завтрак, Обед, Ужин -->
+        <LinearLayout
+            android:id="@+id/fabMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="end|bottom"
+            android:layout_marginBottom="80dp"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/breakfastButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Завтрак" />
+
+            <Button
+                android:id="@+id/lunchButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Обед" />
+
+            <Button
+                android:id="@+id/dinnerButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ужин" />
+        </LinearLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Здесь идут ваши секции: завтрак, обед, ужин -->
+
+            <!-- Окно ввода для добавления продуктов -->
+            <LinearLayout
+                android:id="@+id/foodInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:background="#FFFFFF">
+
+                <EditText
+                    android:id="@+id/foodInput"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:hint="Введите продукт" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                <Button
+                    android:id="@+id/doneButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Готово" />
+
+                <Button
+                    android:id="@+id/cancelButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Отмена"/>
+                </LinearLayout>
+            </LinearLayout>
+        </FrameLayout>
+    </FrameLayout>
+</FrameLayout>
